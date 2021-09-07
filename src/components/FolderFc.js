@@ -17,6 +17,34 @@ let Folder = ({folders}) => {
         setCurrentTab(idx)
     }
 
+    const Headers = ({ titles, currentTab, selectTab }) => {
+      const handleClick = (e) => {
+        const idx = parseInt(e.target.id, 10);
+        selectTab(idx);
+      }
+
+      const tabs = titles.map((title, idx) => {
+        const headerClass = (idx === currentTab) ? 'active' : '';
+
+        return (
+          <li
+            key={idx}
+            id={idx}
+            onClick={handleClick}
+            className={headerClass}
+          >
+            {title}
+          </li>
+        );
+      });
+
+      return (
+        <ul className='tab-header'>
+          {tabs}
+        </ul>
+      );
+    }
+
     return (
         <section>
           <h1>Tabs</h1>
