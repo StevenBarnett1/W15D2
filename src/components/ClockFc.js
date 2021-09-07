@@ -3,21 +3,19 @@ import React, {useState,useEffect} from 'react';
 
 let Clock = () => {
     let [time,setTime] = useState(new Date())
-    let [hours,setHours] = useState("")
-    let [minutes,setMinutes] = useState("")
-    let [seconds,setSeconds] = useState("")
 
     let setTimes = () => {
-        setTime(new Date())
-        setHours(time.getHours());
-        setMinutes(time.getMinutes());
-        setSeconds(time.getSeconds());
+      setTime(new Date())
     }
-    setInterval(setTimes,1000)
-    
+
     useEffect(() => {
-        setTime(new Date())
+      let interval = setInterval(setTimes,1000)
+      return () => clearInterval(interval)
     }, [])
+
+    let hours = time.getHours();
+    let minutes = time.getMinutes();
+    let seconds = time.getSeconds();
 
     hours = (hours < 10) ? `0${hours}` : hours;
     minutes = (minutes < 10) ? `0${minutes}` : minutes;

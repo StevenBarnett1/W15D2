@@ -4,15 +4,15 @@ let Folder = ({folders}) => {
     let [currentTab,setCurrentTab] = useState(0)
     let [folder,setFolder] = useState("")
     let [titles,setTitles] = useState([])
+
     useEffect(() => {
         setFolder(folders[currentTab])
-    }, [currentTab])
+    }, [folders, currentTab])
+
     useEffect(() => {
         setTitles(folders.map((folder) => folder.title))
     }, [folders])
-    // useEffect(() => {
-    //     setTitles(folders.map((folder) => folder.title))
-    // }, [])
+
     let selectTab = (idx) => {
         setCurrentTab(idx)
     }
