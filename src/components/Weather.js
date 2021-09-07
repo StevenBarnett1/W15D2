@@ -27,7 +27,7 @@ class Weather extends React.Component {
       lon: location.coords.longitude,
       appid: apiKey
     };
-    
+
     url += toQueryString(params);
 
     fetch(url)
@@ -38,7 +38,7 @@ class Weather extends React.Component {
   render() {
     const weather = this.state.weather;
     let content = <div className='loading'>loading weather...</div>;
-    
+
     if (weather && weather.main) {
       const temp = (weather.main.temp - 273.15) * 1.8 + 32;
       content = <div>

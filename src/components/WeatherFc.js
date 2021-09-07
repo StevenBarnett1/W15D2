@@ -1,12 +1,12 @@
-import React, {useState} from 'react';
+import React, {useEffect, useState} from 'react';
 import { toQueryString } from '../utils';
 
 let Weather = () => {
     let [weather,setWeather] = useState(null)
 
-  let componentDidMount = () => {
-    navigator.geolocation.getCurrentPosition(this.pollWeather);
-  }
+    useEffect(() => {
+      navigator.geolocation.getCurrentPosition(pollWeather);
+    }, [])
 
   let pollWeather = (location) => {
     let url = 'http://api.openweathermap.org/data/2.5/weather?';
@@ -20,16 +20,14 @@ let Weather = () => {
     const params = {
       lat: location.coords.latitude,
       lon: location.coords.longitude,
-      appid: apiKey
     };
 
-    url += toQueryString(params);
+    url += toQueryString(params) + `&appid=${apiKey}`;
 
     fetch(url)
       .then((res) => res.json())
       .then((weather) => setWeather(weather));
   }
-    const weather = this.state.weather;
     let content = <div className='loading'>loading weather...</div>;
 
     if (weather && weather.main) {
