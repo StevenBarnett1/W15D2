@@ -5,14 +5,7 @@ import { CSSTransition, TransitionGroup } from 'react-transition-group';
 let Auto = ({ names }) => {
     const [inputVal, setInputVal] = useState('');
 
-      selectName = (e) => {
-        const name = e.target.innerText;
-        this.setState({ inputVal: name });
-      }
-
-      matches = () => {
-        const { inputVal } = this.state;
-        const { names } = this.props;
+      let matches = () => {
         const inputLength = inputVal.length;
         const matches = [];
 
@@ -30,8 +23,7 @@ let Auto = ({ names }) => {
         return matches;
       }
 
-      render() {
-        const results = this.matches().map((result) => (
+        const results = matches().map((result) => (
           <CSSTransition
             key={result}
             classNames="result"
@@ -47,7 +39,7 @@ let Auto = ({ names }) => {
             <div className="auto">
               <input
                 onChange={(e) => setInputVal(e.target.value)}
-                value={this.state.inputVal}
+                value={inputVal}
                 placeholder="Search..."
               />
               <ul className="auto-dropdown" onClick={(e) => setInputVal(e.target.innerText)}>
@@ -58,6 +50,7 @@ let Auto = ({ names }) => {
             </div>
           </section>
         );
-      }
 
 }
+
+export default Auto

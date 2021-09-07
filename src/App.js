@@ -4,6 +4,7 @@ import Clock from './components/Clock';
 import Weather from './components/Weather';
 import AutoComplete from './components/Auto';
 import Folder from "./components/FolderFc"
+import Auto from "./components/AutoFc"
 
 const names = [
   'Abba',
@@ -25,8 +26,9 @@ const folders = [
 const App = () => (
   <div>
     <Folder folders={folders} />
+    <Auto names = {names} />
     {/* <Folder folders={folders} /> */}
-    <AutoComplete names={names} />
+    {/* <AutoComplete names={names} /> */}
     <Weather />
     <Clock />
   </div>
