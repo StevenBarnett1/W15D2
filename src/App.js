@@ -1,11 +1,12 @@
 import React from 'react';
-import Clock from './components/Clock';
+// import Clock from './components/Clock';
 // import Folder from './components/Folder';
 // import Weather from './components/Weather';
 import Weather from './components/WeatherFc';
-import AutoComplete from './components/Auto';
+// import AutoComplete from './components/Auto';
 import Folder from "./components/FolderFc"
 import Auto from "./components/AutoFc"
+import Clock from "./components/ClockFc"
 
 const names = [
   'Abba',
